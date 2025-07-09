@@ -17,12 +17,12 @@ app.set('view engine', 'ejs');
 
 app.get('/', async (req, res) => {
     try {
-        const response = await axios.get('https://api.example.com/data');
+        const response = await axios.get('https://covers.openlibrary.org/b/id/12547191.json');
         const result = response.data;
-        res.render('index.ejs', { data: result });
+        res.render('index', { data: result });
     } catch (err) {
         console.error('Error fetching data:', err);
-        res.render('index.ejs', { data: null, error: 'Failed to fetch data' });
+        res.render('index', { data: null, error: 'Failed to fetch data' });
     }
 });
 

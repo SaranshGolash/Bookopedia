@@ -14,11 +14,24 @@
             <div class="sub-body">
                 <table>
                     <tr>
-                        <th></th>
+                        <th>Id</th>
+                        <th>File Name</th>
+                        <th>Author</th>
+                        <th>Source</th>
+                    </tr>
+                    <tr>
+                        <td><%= data.id %></td>
+                        <td><%= data.filename %></td>
+                        <td><%= data.author %></td>
+                        <td><%= data.source_url %></td>
                     </tr>
                 </table>
             </div>
-            <% } %>
+            <% } if(locals.error) { %>
+                <div class="error-block">
+                    <p><%= error %></p>
+                </div>
+                <% } %>
         </section>
     </body>
 </html>
