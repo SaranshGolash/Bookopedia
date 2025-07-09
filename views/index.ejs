@@ -10,9 +10,15 @@
                 <h1>Bookopedia</h1>
                 <p>Welcome! Here you can see and update the list of books read by you.</p>
             </div>
+            <% if(locals.data) {%>
             <div class="sub-body">
-                
+                <table>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </table>
             </div>
+            <% } %>
         </section>
     </body>
 </html>
