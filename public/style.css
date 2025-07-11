@@ -11,7 +11,7 @@ body {
     justify-content:start;
     align-items: center;
     flex-flow: column nowrap;
-    background-image: linear-gradient(to top right, red, yellow);
+    background-image: linear-gradient(to top right, #a683e3 50%, #e4e9fd 50%);
     height: 100vh;
 }
 
@@ -25,8 +25,14 @@ body {
 }
 
 .heading > h1 {
-    color: rgb(185, 75, 152);
-    font-size: 2.5rem;
+    color: #a683e3;
+    font-size: 3.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.heading > p {
+    font-size: large;
+    font-style: italic;
 }
 
 .sub-body {
@@ -34,4 +40,15 @@ body {
     justify-content: center;
     align-items: center;
     flex-flow: column nowrap;
+}
+
+.sub-body > table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+    font-style: oblique;
+    width: 1000px;
+}
+
+.sub-body > table > th, td {
+    padding-left: 10px;
 }
