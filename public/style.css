@@ -1,18 +1,18 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     border: 0;
     padding: 0;
 }
 
 .main-body {
-    max-width: 1200px;
     padding: 0px;
     display: flex;
-    justify-content: center;
+    justify-content:start;
     align-items: center;
     flex-flow: column nowrap;
+    background-image: linear-gradient(to top right, red, yellow);
+    height: 100vh;
 }
 
 .heading {
@@ -25,7 +25,8 @@ body {
 }
 
 .heading > h1 {
-    color: aqua;
+    color: rgb(185, 75, 152);
+    font-size: 2.5rem;
 }
 
 .sub-body {
