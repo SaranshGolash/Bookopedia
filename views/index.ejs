@@ -12,20 +12,20 @@
                 <h1>Bookopedia</h1>
                 <p>Welcome! Here you can see and update the list of books read by you.</p>
             </div>
-            <% if(locals.data) {%>
+            <% for (let book of bookShelf) {%>
             <div class="sub-body">
                 <table>
                     <tr>
                         <th>Id</th>
-                        <th>File Name</th>
+                        <th>Book Name</th>
                         <th>Author</th>
                         <th>Source</th>
                     </tr>
                     <tr>
-                        <td><%= data.id %></td>
-                        <td><%= data.filename %></td>
-                        <td><%= data.author %></td>
-                        <td><%= data.source_url %></td>
+                        <td><%= book.id %></td>
+                        <td><%= book.name %></td>
+                        <td><%= book.author %></td>
+                        <td><%= book.source %></td>
                     </tr>
                 </table>
             </div>
