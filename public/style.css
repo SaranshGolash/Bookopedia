@@ -5,6 +5,8 @@ body {
     padding: 0;
 }
 
+/* Main body styling */
+
 .main-body {
     padding: 0px;
     display: flex;
@@ -14,6 +16,8 @@ body {
     background-color: #a683e3;
     height: 100vh;
 }
+
+/* HEading styling */
 
 .heading {
     display: flex;
@@ -34,6 +38,8 @@ body {
     font-size: large;
     font-style: italic;
 }
+
+/* Sub Body styling */
 
 .sub-body {
     display: flex;
@@ -56,4 +62,14 @@ td, th {
 
 th {
     color: #e4e9fd;
+}
+
+
+/* Add form styling */
+
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
 }
