@@ -26,12 +26,10 @@ app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   try {
-    // Check if any books exist
     const existing = await db.query('SELECT * FROM books');
     let books = existing.rows;
 
     if (books.length === 0) {
-      // 1. Search for a book
       const searchResponse = await axios.get('https://openlibrary.org/search.json?q=the+lord+of+the+rings');
       const bookData = searchResponse.data.docs[0]; // pick the first result
 
@@ -40,14 +38,12 @@ app.get("/", async (req, res) => {
       const authorName = bookData.author_name ? bookData.author_name[0] : "Unknown";
       const source = `https://openlibrary.org${workKey}`;
 
-      // 2. Insert into DB
       await db.query('INSERT INTO books (name, author, source) VALUES ($1, $2, $3)', [
         title,
         authorName,
         source
       ]);
 
-      // 3. Re-fetch updated data
       const result = await db.query('SELECT * FROM books ORDER BY id ASC');
       books = result.rows;
     }

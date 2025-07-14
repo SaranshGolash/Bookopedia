@@ -11,7 +11,7 @@ body {
     justify-content:start;
     align-items: center;
     flex-flow: column nowrap;
-    background-image: linear-gradient(to top right, #a683e3 50%, #e4e9fd 50%);
+    background-color: #a683e3;
     height: 100vh;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .heading > h1 {
-    color: #a683e3;
+    color: #e4e9fd;
     font-size: 3.5rem;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -49,6 +49,11 @@ body {
     width: 1000px;
 }
 
-.sub-body > table > th, td {
-    padding-left: 10px;
+td, th {
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+}
+
+th {
+    color: #e4e9fd;
 }
