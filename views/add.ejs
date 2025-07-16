@@ -11,7 +11,19 @@
                 <h1>NEW ENTRY</h1>
                 <p>What book do you want to add?</p>
             </div>
-            <div class="add-form"></div>
+            <div class="add-form">
+                <form action="/add" method="POST">
+                    <label for="name">Book Name:
+                        <input type="text" id="name" name="name" required>
+                    </label>
+                    <label for="author">Author Name:
+                        <input type="text" id="author" name="author" required>
+                    </label>
+                    <label for="source">Source:
+                        <input type="text" id="source" name="source">
+                    </label>
+                </form>
+            </div>
         </section>
     </body>
 </html>
