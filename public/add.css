@@ -39,3 +39,14 @@ body {
     font-size: large;
     font-style: italic;
 }
+
+/* Add form styling */
+
+.add-form > form {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-flow: column nowrap;
+    gap: 15px;
+    width: fit-content;
+}
