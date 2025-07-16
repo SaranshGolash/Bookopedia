@@ -47,7 +47,22 @@ body {
     justify-content: center;
     align-items: start;
     flex-flow: column nowrap;
-    gap: 15px;
+    gap: 25px;
+}
+
+label {
+    font-size: 18px;
+}
+
+#name {
+    width: 180px;
+    padding-left: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#author {
+    
 }
 
 #submit {
