@@ -55,14 +55,22 @@ label {
 }
 
 #name {
-    width: 180px;
+    width: 175px;
     padding-left: 10px;
     border: 1px solid;
     border-radius: 5px;
 }
 
 #author {
-    
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#source {
+    width: 210px;
+    padding-left: 10px;
+    border: 1px solid;
+    border-radius: 5px;
 }
 
 #submit {
