@@ -48,5 +48,16 @@ body {
     align-items: start;
     flex-flow: column nowrap;
     gap: 15px;
-    width: fit-content;
+}
+
+#submit {
+    background-color: #ff6f61;
+    color: #faf9f6;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 10px 20px;
+    align-self: center;
 }
