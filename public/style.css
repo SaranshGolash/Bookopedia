@@ -15,6 +15,7 @@ body {
     flex-flow: column nowrap;
     background-color: #a683e3;
     height: 100vh;
+    gap: 20px;
 }
 
 /* HEading styling */
@@ -72,6 +73,7 @@ th {
     justify-content: center;
     align-items: center;
     flex-flow: column nowrap;
+    gap: 10px;
 }
 
 #addBtn {
@@ -83,4 +85,9 @@ th {
     border-radius: 10px;
     margin: 0px;
     padding: 10px 20px;
+}
+
+#addBtn:hover {
+    cursor: pointer;
+    background-color: #f0b86e;
 }
