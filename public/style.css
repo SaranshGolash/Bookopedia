@@ -75,6 +75,23 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #d93636;
+}
+
+.remove {
+    background-color: #a683e3;
+}
+
 
 /* Add form styling */
 

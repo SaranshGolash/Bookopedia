@@ -95,6 +95,20 @@ app.post("/add", async (req, res) => {
   }
 });
 
+// Route to handle deleting a book
+
+app.post('/delete/:id', async (req, res) => {
+  const bookId = req.params.id;
+
+  try {
+    await db.query('DELETE FROM books WHERE id = $1', [bookId]);
+    res.redirect('/');
+  } catch (err) {
+    console.error("Error deleting book:", err);
+    res.render("index", { bookShelf: [], error: "Failed to delete entry." });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
