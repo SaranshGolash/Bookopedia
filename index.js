@@ -69,7 +69,11 @@ app.get("/", async (req, res) => {
       const workKey = bookData.key;
       const authorName = bookData.author_name ? bookData.author_name[0] : "Unknown";
       const source = `https://openlibrary.org${workKey}`;
+
       id = await getNextAvailableId();
+
+      // Insert the book into the database
+
       await db.query('INSERT INTO books (id, name, author, source) VALUES ($1, $2, $3, $4)', [
         id,
         title,
