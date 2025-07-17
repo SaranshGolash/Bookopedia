@@ -34,6 +34,20 @@ app.use((req, res, next) => {
 app.set("views", path.join(_dirname, "views"));
 app.set("view engine", "ejs");
 
+// Function to get the next available ID for a new book
+
+async function getNextAvailableId() {
+  const result = await db.query('SELECT id FROM books ORDER BY id');
+  const ids = result.rows.map(row => row.id);
+
+  for (let i = 1; i <= ids.length + 1; i++) {
+    if (!ids.includes(i)) {
+      return i;
+    }
+  }
+  return 1;
+}
+
 // Route to handle the root path
 
 app.get("/", async (req, res) => {
@@ -50,12 +64,14 @@ app.get("/", async (req, res) => {
       const searchResponse = await axios.get('https://openlibrary.org/search.json?q=the+lord+of+the+rings');
       const bookData = searchResponse.data.docs[0]; // pick the first result
 
+      let id = 1;
       const title = bookData.title;
       const workKey = bookData.key;
       const authorName = bookData.author_name ? bookData.author_name[0] : "Unknown";
       const source = `https://openlibrary.org${workKey}`;
-
-      await db.query('INSERT INTO books (name, author, source) VALUES ($1, $2, $3)', [
+      id = await getNextAvailableId();
+      await db.query('INSERT INTO books (id, name, author, source) VALUES ($1, $2, $3, $4)', [
+        id,
         title,
         authorName,
         source
@@ -86,8 +102,10 @@ app.get("/add", (req, res) => {
 
 app.post("/add", async (req, res) => {
   const { name, author, source } = req.body;
+  let id = await getNextAvailableId();
   try {
-    await db.query('INSERT INTO books (name, author, source) VALUES ($1, $2, $3)', [
+    await db.query('INSERT INTO books (id, name, author, source) VALUES ($1, $2, $3, $4)', [
+      id,
       name,
       author,
       source
@@ -112,6 +130,7 @@ app.delete('/delete/:id', async (req, res) => {
     res.status(500).send("Failed to delete");
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
