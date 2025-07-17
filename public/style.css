@@ -49,6 +49,11 @@ body {
     flex-flow: column nowrap;
 }
 
+table {
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
 .sub-body > table, th, td {
     border:1px solid black;
     border-collapse: collapse;
@@ -62,7 +67,12 @@ td, th {
 }
 
 th {
+    background-color: #a683e3;
     color: #e4e9fd;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
 }
 
 
