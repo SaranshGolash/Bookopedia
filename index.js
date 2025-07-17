@@ -80,6 +80,21 @@ app.get("/add", (req, res) => {
 
 // Route to handle the form submission for adding a new book
 
+app.post("/add", async (req, res) => {
+  const { name, author, source } = req.body;
+  try {
+    await db.query('INSERT INTO books (name, author, source) VALUES ($1, $2, $3)', [
+      name,
+      author,
+      source
+    ]);
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error adding book:", err);
+    res.render("add", { error: "Failed to add book. Please try again." });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
