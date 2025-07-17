@@ -24,6 +24,10 @@ const _dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Methods", "GET,POST,DELETE");
+  next();
+});
 
 // Setting up EJS as the template engine
 
@@ -97,15 +101,15 @@ app.post("/add", async (req, res) => {
 
 // Route to handle deleting a book
 
-app.post('/delete/:id', async (req, res) => {
+app.delete('/delete/:id', async (req, res) => {
   const bookId = req.params.id;
 
   try {
     await db.query('DELETE FROM books WHERE id = $1', [bookId]);
-    res.redirect('/');
+    res.status(200).send("Deleted");
   } catch (err) {
     console.error("Error deleting book:", err);
-    res.render("index", { bookShelf: [], error: "Failed to delete entry." });
+    res.status(500).send("Failed to delete");
   }
 });
 
